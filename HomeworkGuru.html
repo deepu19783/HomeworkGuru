@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="HomeworkGuru.css">
+    <title>Educational AI Assistant</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Educational AI Assistant</h1>
+            <p>Ask questions in any subject - Hindi & English supported</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Subject Selection -->
+            <div class="subject-grid">
+                <div class="subject-card active" data-subject="general" onclick="selectSubject('general')">
+                    <span class="subject-emoji">🤔</span>
+                    <div class="subject-name">General</div>
+                </div>
+                <div class="subject-card" data-subject="math" onclick="selectSubject('math')">
+                    <span class="subject-emoji">📐</span>
+                    <div class="subject-name">Math</div>
+                </div>
+                <div class="subject-card" data-subject="physics" onclick="selectSubject('physics')">
+                    <span class="subject-emoji">⚛️</span>
+                    <div class="subject-name">Physics</div>
+                </div>
+                <div class="subject-card" data-subject="chemistry" onclick="selectSubject('chemistry')">
+                    <span class="subject-emoji">🧪</span>
+                    <div class="subject-name">Chemistry</div>
+                </div>
+                <div class="subject-card" data-subject="biology" onclick="selectSubject('biology')">
+                    <span class="subject-emoji">🧬</span>
+                    <div class="subject-name">Biology</div>
+                </div>
+                <div class="subject-card" data-subject="hindi" onclick="selectSubject('hindi')">
+                    <span class="subject-emoji">📚</span>
+                    <div class="subject-name">हिंदी</div>
+                </div>
+                <div class="subject-card" data-subject="english" onclick="selectSubject('english')">
+                    <span class="subject-emoji">📖</span>
+                    <div class="subject-name">English</div>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div id="messagesContainer" class="messages-container">
+                    <div class="message ai">
+                        <div class="message-bubble">
+                            👋 नमस्ते! I'm your Educational AI Assistant.<br><br>
+                            ✨ <strong>Features:</strong><br>
+                            • Ask questions in Hindi or English<br>
+                            • Upload images for visual problems<br>
+                            • Get detailed explanations<br>
+                            • All subjects covered<br><br>
+                            Select a subject above and start learning! 🚀
+                        </div>
+                    </div>
+                </div>
+
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="typing-bubble">
+                        🤔 AI is thinking...
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <div class="input-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="imageInput" class="file-input" accept="image/*" onchange="handleImageUpload(event)">
+                            <button class="file-btn">
+                                📷 Upload Image
+                            </button>
+                        </div>
+                        <button onclick="sendMessage()" id="sendBtn" class="send-btn">
+                            Send 📤
+                        </button>
+                    </div>
+                    <img id="imagePreview" class="image-preview" alt="Preview">
+                    <textarea id="textInput" class="text-input" placeholder="Ask your question... (Hindi या English में पूछें)" rows="1" oninput="autoResize(this)" onkeypress="handleKeyPress(event)"></textarea>
+                </div>
+            </div>
+
+            <!-- Example Questions -->
+            <div class="examples-grid">
+                <div class="example-card" onclick="setExample('भिन्न क्या होता है? उदाहरण देकर समझाइए।')">
+                    <h4>📐 गणित प्रश्न</h4>
+                    <p>भिन्न क्या होता है? उदाहरण देकर समझाइए।</p>
+                </div>
+                <div class="example-card" onclick="setExample('न्यूटन के गति के नियम समझाइए')">
+                    <h4>⚛️ भौतिकी प्रश्न</h4>
+                    <p>न्यूटन के गति के नियम समझाइए</p>
+                </div>
+                <div class="example-card" onclick="setExample('What is photosynthesis process?')">
+                    <h4>🧬 Biology Question</h4>
+                    <p>What is photosynthesis process?</p>
+                </div>
+                <div class="example-card" onclick="setExample('Explain atomic structure')">
+                    <h4>🧪 Chemistry Question</h4>
+                    <p>Explain atomic structure</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="HomeworkGuru.js"></script>
+</body>
+</html>
